@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmEditGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmEditHS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmHS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
