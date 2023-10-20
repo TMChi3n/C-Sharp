@@ -33,14 +33,14 @@
             cboLop = new ComboBox();
             dgViewHS = new DataGridView();
             btnBack = new Button();
-            btnAddHS = new Button();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgViewHS).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 98);
+            label1.Location = new Point(12, 88);
             label1.Name = "label1";
             label1.Size = new Size(34, 20);
             label1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // cboLop
             // 
             cboLop.FormattingEnabled = true;
-            cboLop.Location = new Point(65, 98);
+            cboLop.Location = new Point(65, 88);
             cboLop.Name = "cboLop";
             cboLop.Size = new Size(177, 28);
             cboLop.TabIndex = 1;
@@ -58,11 +58,11 @@
             // 
             dgViewHS.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgViewHS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgViewHS.Location = new Point(292, 98);
+            dgViewHS.Location = new Point(276, 88);
             dgViewHS.Name = "dgViewHS";
             dgViewHS.RowHeadersWidth = 51;
             dgViewHS.RowTemplate.Height = 29;
-            dgViewHS.Size = new Size(584, 263);
+            dgViewHS.Size = new Size(600, 273);
             dgViewHS.TabIndex = 2;
             // 
             // btnBack
@@ -75,28 +75,28 @@
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
-            // btnAddHS
+            // label2
             // 
-            btnAddHS.Location = new Point(695, 51);
-            btnAddHS.Name = "btnAddHS";
-            btnAddHS.Size = new Size(169, 41);
-            btnAddHS.TabIndex = 5;
-            btnAddHS.Text = "Chỉnh sửa thông tin";
-            btnAddHS.UseVisualStyleBackColor = true;
-            btnAddHS.Click += btnAddHS_Click;
+            label2.AutoSize = true;
+            label2.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(287, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(259, 29);
+            label2.TabIndex = 5;
+            label2.Text = "Thông tin học sinh";
             // 
             // frmHS
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(876, 363);
+            Controls.Add(label2);
             Controls.Add(cboLop);
-            Controls.Add(btnAddHS);
             Controls.Add(label1);
             Controls.Add(btnBack);
             Controls.Add(dgViewHS);
             Name = "frmHS";
-            Text = "Thông tin học sinh";
+            Text = "Thông tin lớp học";
             ((System.ComponentModel.ISupportInitialize)dgViewHS).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -108,6 +108,6 @@
         private ComboBox cboLop;
         private DataGridView dgViewHS;
         private Button btnBack;
-        private Button btnAddHS;
+        private Label label2;
     }
 }

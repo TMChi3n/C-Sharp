@@ -17,18 +17,16 @@ namespace QuanLyThongTin
             InitializeComponent();
         }
 
-        private void btnAddHS_Click(object sender, EventArgs e)
-        {
-            frmEditHS editHS = new frmEditHS();
-            editHS.Show();
-            
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             frmHome h = new frmHome();
             h.Show();
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

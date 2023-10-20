@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             menuStrip1 = new MenuStrip();
             thôngTinToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             giáoViênToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
+            button1 = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,14 +58,14 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(224, 26);
+            toolStripMenuItem1.Size = new Size(154, 26);
             toolStripMenuItem1.Text = "Học sinh";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // giáoViênToolStripMenuItem
             // 
             giáoViênToolStripMenuItem.Name = "giáoViênToolStripMenuItem";
-            giáoViênToolStripMenuItem.Size = new Size(224, 26);
+            giáoViênToolStripMenuItem.Size = new Size(154, 26);
             giáoViênToolStripMenuItem.Text = "Giáo viên";
             giáoViênToolStripMenuItem.Click += giáoViênToolStripMenuItem_Click;
             // 
@@ -74,14 +76,25 @@
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
-            // Home
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(0, 31);
+            button1.Name = "button1";
+            button1.Size = new Size(800, 419);
+            button1.TabIndex = 1;
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // frmHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "Home";
+            Name = "frmHome";
             Text = "Home";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -96,5 +109,6 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem giáoViênToolStripMenuItem;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private Button button1;
     }
 }

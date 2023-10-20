@@ -27,5 +27,12 @@ namespace QuanLyThongTin
             }
             return conn;
         }
+
+        public static int ToInt(object obj)
+        {
+            int i = 0; 
+            int.TryParse(obj.ToString(), out i);
+            return i;
+        }
     }
 }

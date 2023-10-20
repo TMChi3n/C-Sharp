@@ -16,5 +16,12 @@ namespace QuanLyThongTin
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmHS hs = new frmHS();
+            hs.Show();
+            this.Close();
+        }
     }
 }

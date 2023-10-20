@@ -33,12 +33,13 @@
             label2 = new Label();
             label1 = new Label();
             btnLogin = new Button();
+            btnExit = new Button();
             SuspendLayout();
             // 
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.None;
-            txtPassword.Location = new Point(293, 158);
+            txtPassword.Location = new Point(193, 158);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(220, 27);
@@ -47,7 +48,7 @@
             // txtName
             // 
             txtName.Anchor = AnchorStyles.None;
-            txtName.Location = new Point(293, 94);
+            txtName.Location = new Point(193, 94);
             txtName.Name = "txtName";
             txtName.Size = new Size(220, 27);
             txtName.TabIndex = 4;
@@ -56,7 +57,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(134, 158);
+            label2.Location = new Point(34, 158);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
             label2.TabIndex = 7;
@@ -66,7 +67,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(134, 101);
+            label1.Location = new Point(34, 101);
             label1.Name = "label1";
             label1.Size = new Size(107, 20);
             label1.TabIndex = 5;
@@ -75,26 +76,38 @@
             // btnLogin
             // 
             btnLogin.Anchor = AnchorStyles.None;
-            btnLogin.Location = new Point(293, 236);
+            btnLogin.Location = new Point(193, 225);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(108, 29);
+            btnLogin.Size = new Size(127, 40);
             btnLogin.TabIndex = 8;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.None;
+            btnExit.Location = new Point(405, 299);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(137, 50);
+            btnExit.TabIndex = 8;
+            btnExit.Text = "Thoát";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
             // frmDangNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(754, 361);
+            ClientSize = new Size(554, 361);
             Controls.Add(txtPassword);
             Controls.Add(txtName);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(btnExit);
             Controls.Add(btnLogin);
             Name = "frmDangNhap";
-            Text = "DangNhap";
+            Text = "Đăng nhập";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,5 +119,6 @@
         private Label label2;
         private Label label1;
         private Button btnLogin;
+        private Button btnExit;
     }
 }
