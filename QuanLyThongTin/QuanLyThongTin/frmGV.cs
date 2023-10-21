@@ -30,44 +30,35 @@ namespace QuanLyThongTin
 
         private void FillCboKhoa()
         {
-            DataTable dt = Khoa.ListKhoa();
-
-            DataRow dr = dt.NewRow();
-            dr["idKhoa"] = 0;
-            dr["tenKhoa"] = " ";
-            dt.Rows.InsertAt(dr, 0);
-
-            cboKhoa.DataSource = dt;
-
+            List<Khoa> lst = Khoa.ListKhoa();
+            // linq
+            cboKhoa.DataSource = lst;
             cboKhoa.DisplayMember = "tenKhoa";
             cboKhoa.ValueMember = "idKhoa";
         }
 
         private void FillCboLop()
         {
-            DataTable dt = Lop.ListLop();
-
-            DataRow dr = dt.NewRow();
-            dr["idLop"] = 0;
-            dr["tenLop"] = " ";
-            dt.Rows.InsertAt(dr, 0);
-
-            cboLop.DataSource = dt;
-
+            List<Lop> lst = Lop.ListLop();
+            cboLop.DataSource = lst;
             cboLop.DisplayMember = "tenLop";
             cboLop.ValueMember = "idLop";
         }
 
         private void FillKhoa()
         {
-            int idGV = Global.ToInt(cboKhoa.SelectedValue);
+            int idKhoa = Global.ToInt(cboKhoa.SelectedValue);
             SqlConnection conn = Global.getConnection();
             String sql = @"select G.idGV, G.tenGV, G.gioiTinh, G.queQuan, K.tenKhoa, L.tenLop 
                             from GiaoVien G
-                            join Khoa K on G.idKhoa = k.idKhoa
+                            join Khoa K on G.idKhoa = K.idKhoa
                             join Lop L on G.idLop = L.idLop";
+            if (idKhoa > 0)
+            {
+                sql += " where G.idKhoa=@idKhoa";
+            }
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add("idGV", SqlDbType.Int).Value = idGV;
+            cmd.Parameters.Add("idKhoa", SqlDbType.Int).Value = idKhoa;
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -76,14 +67,18 @@ namespace QuanLyThongTin
 
         private void FillLop()
         {
-            int idGV = Global.ToInt(cboKhoa.SelectedValue);
+            int idLop = Global.ToInt(cboLop.SelectedValue);
             SqlConnection conn = Global.getConnection();
             String sql = @"select G.idGV, G.tenGV, G.gioiTinh, G.queQuan, K.tenKhoa, L.tenLop 
                             from GiaoVien G
-                            join Khoa K on G.idKhoa = k.idKhoa
+                            join Khoa K on G.idKhoa = K.idKhoa
                             join Lop L on G.idLop = L.idLop";
+            if (idLop > 0)
+            {
+                sql += " where G.idLop=@idLop";
+            }
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add("idGV", SqlDbType.Int).Value = idGV;
+            cmd.Parameters.Add("idLop", SqlDbType.Int).Value = idLop;
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -106,16 +101,38 @@ namespace QuanLyThongTin
             if (dg != null)
             {
                 int idGV = Global.ToInt(dg.Cells["idGV"].Value);
+                this.Close();
                 frmEditGV edit = new frmEditGV(idGV);
-                edit.datachanged_event += dataChange;
+                edit.DataAdded += Edit_DataAdded;
                 edit.Show();
+
             }
-
         }
-
-        private void dataChange(object obj)
+        private void Edit_DataAdded(object sender, EventArgs e)
         {
-            
+            DataTable updatedData = RetrieveDataFromDatabase(); // Call your data retrieval method
+            dgViewGV.DataSource = updatedData; // Set the DataGridView's data source to the updated data
         }
+
+        private DataTable RetrieveDataFromDatabase()
+        {
+            using (SqlConnection connection = Global.getConnection())
+            {
+
+                string query = "SELECT * FROM GiaoVien";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        return dataTable;
+                    }
+                }
+            }
+        }
+
     }
 }

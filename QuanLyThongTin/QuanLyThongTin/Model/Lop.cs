@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using QuanLyThongTin.Linq;
 
 namespace QuanLyThongTin.Model
 {
@@ -18,15 +19,12 @@ namespace QuanLyThongTin.Model
         public String tenLop { get; set; }
         public int idKhoa { get; set; }
 
-        public static DataTable ListLop()
+        public static List<Lop> ListLop()
         {
-            SqlConnection conn = Global.getConnection();
-            String sql = "select * from Lop";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            return dt;
+            DataContext dtx = new DataContext();
+            var lst = (from x in dtx.Lop select x).ToList();
+            return lst;
         }
+
     }
 }

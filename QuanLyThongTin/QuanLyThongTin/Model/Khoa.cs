@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using QuanLyThongTin.Linq;
 
 namespace QuanLyThongTin.Model
 {
@@ -17,16 +18,12 @@ namespace QuanLyThongTin.Model
         public int idKhoa { get; set; }
         public String tenKhoa { get; set; }
 
-        public static DataTable ListKhoa()
+        public static List<Khoa> ListKhoa()
         {
-            SqlConnection conn = Global.getConnection();
-            String sql = "select * from Khoa";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            return dt;
-
+            DataContext dtx = new DataContext();
+            var lst = (from x in dtx.Khoa select x).ToList();
+            return lst;
         }
+
     }
 }

@@ -43,18 +43,18 @@
             // 
             dgViewGV.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgViewGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgViewGV.Location = new Point(292, 98);
+            dgViewGV.Location = new Point(292, 122);
             dgViewGV.Name = "dgViewGV";
             dgViewGV.RowHeadersWidth = 51;
             dgViewGV.RowTemplate.Height = 29;
-            dgViewGV.Size = new Size(803, 272);
+            dgViewGV.Size = new Size(803, 299);
             dgViewGV.TabIndex = 0;
             dgViewGV.CellContentClick += dgViewGV_CellContentClick;
             // 
             // cboLop
             // 
             cboLop.FormattingEnabled = true;
-            cboLop.Location = new Point(68, 98);
+            cboLop.Location = new Point(70, 122);
             cboLop.Name = "cboLop";
             cboLop.Size = new Size(177, 28);
             cboLop.TabIndex = 7;
@@ -63,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(15, 98);
+            label1.Location = new Point(17, 122);
             label1.Name = "label1";
             label1.Size = new Size(34, 20);
             label1.TabIndex = 6;
@@ -72,7 +72,7 @@
             // btnBack
             // 
             btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(12, 300);
+            btnBack.Location = new Point(12, 360);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(113, 51);
             btnBack.TabIndex = 8;
@@ -82,7 +82,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 155);
+            label2.Location = new Point(14, 179);
             label2.Name = "label2";
             label2.Size = new Size(43, 20);
             label2.TabIndex = 6;
@@ -91,7 +91,7 @@
             // cboKhoa
             // 
             cboKhoa.FormattingEnabled = true;
-            cboKhoa.Location = new Point(68, 152);
+            cboKhoa.Location = new Point(70, 176);
             cboKhoa.Name = "cboKhoa";
             cboKhoa.Size = new Size(177, 28);
             cboKhoa.TabIndex = 7;
@@ -101,7 +101,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(411, 23);
+            label3.Location = new Point(457, 44);
             label3.Name = "label3";
             label3.Size = new Size(248, 29);
             label3.TabIndex = 9;
@@ -111,7 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1098, 372);
+            ClientSize = new Size(1098, 423);
             Controls.Add(label3);
             Controls.Add(cboKhoa);
             Controls.Add(cboLop);

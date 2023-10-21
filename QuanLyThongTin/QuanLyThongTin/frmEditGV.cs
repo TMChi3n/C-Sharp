@@ -1,4 +1,5 @@
-﻿using QuanLyThongTin.Model;
+﻿using QuanLyThongTin.Linq;
+using QuanLyThongTin.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,8 @@ namespace QuanLyThongTin
         public delegate void Data_Changed(object obj);
         public Data_Changed datachanged_event;
 
-        public Data_Changed textchangetest_event;
+        public delegate void DataAddedEventHandler(object sender, EventArgs e);
+        public event DataAddedEventHandler DataAdded;
 
         bool flagADD = false;
         public frmEditGV()
@@ -48,7 +50,7 @@ namespace QuanLyThongTin
             cboKhoaGV.ValueMember = "idKhoa";
 
             DataRow dr = dt.NewRow();
-            dr["tenKhoa"] = "========CHƯA CHỌN===========";
+            dr["tenKhoa"] = "Chọn khoa";
             dr["idKhoa"] = 0;
             dt.Rows.InsertAt(dr, 0);
         }
@@ -66,7 +68,7 @@ namespace QuanLyThongTin
             cboLopGV.ValueMember = "idLop";
 
             DataRow dr = dt.NewRow();
-            dr["tenLop"] = "========CHƯA CHỌN===========";
+            dr["tenLop"] = "Chọn lớp";
             dr["idLop"] = 0;
             dt.Rows.InsertAt(dr, 0);
         }
@@ -180,6 +182,7 @@ namespace QuanLyThongTin
             {
                 MessageBox.Show("Lỗi", "Thông báo");
             }
+            DataAdded?.Invoke(this, EventArgs.Empty);
         }
         private void updateGiaoVien()
         {
@@ -191,19 +194,21 @@ namespace QuanLyThongTin
             gv.idKhoa = Global.ToInt(cboKhoaGV.SelectedValue);
             gv.idLop = Global.ToInt(cboLopGV.SelectedValue);
 
-            bool ok = GiaoVien.insertGV(gv);
+            bool ok = GiaoVien.updateGV(gv);
             if (ok)
             {
-                MessageBox.Show("Thêm dữ liệu thành công", "Thông báo");
+                MessageBox.Show("Cập nhật dữ liệu thành công", "Thông báo");
                 if (datachanged_event != null)
                 {
-                    datachanged_event("Dữ liệu vừa cập nhật");
+                    datachanged_event("Đã cập nhật thành công dữ liệu");
                 }
             }
             else
             {
                 MessageBox.Show("Lỗi", "Thông báo");
             }
+
+            
         }
     }
 }

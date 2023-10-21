@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThongTin.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,12 +28,15 @@ namespace QuanLyThongTin.Model
         public static bool insertGV(GiaoVien gv)
         {
             SqlConnection conn = Global.getConnection();
-            String sql = "insert GiaoVien(tenGV, gioiTinh, queQuan) values (@tenGV, @gioiTinh, @queQuan)";
+            String sql = "insert GiaoVien(tenGV, gioiTinh, queQuan, idKhoa, idLop)" +
+                " values (@tenGV, @gioiTinh, @queQuan, @idLop, @idKhoa)";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.Add("@tenGV", SqlDbType.NVarChar).Value = gv.tenGV;
             cmd.Parameters.Add("@gioiTinh", SqlDbType.NVarChar).Value = gv.gioiTinh;
             cmd.Parameters.Add("@queQuan", SqlDbType.NVarChar).Value = gv.queQuan;
+            cmd.Parameters.Add("@idKhoa", SqlDbType.Int).Value = gv.idKhoa;
+            cmd.Parameters.Add("@idLop", SqlDbType.Int).Value = gv.idLop;
 
             try
             {
@@ -68,23 +72,19 @@ namespace QuanLyThongTin.Model
 
         public static bool updateGV(GiaoVien gv)
         {
-            SqlConnection conn = Global.getConnection();
-            String sql = "update GiaoVien set tenGV=@tenGV, gioiTinh=@gioiTinh, queQuan=@queQuan where idGV=@idGV";
-
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add("@tenGV", SqlDbType.NVarChar).Value = gv.tenGV;
-            cmd.Parameters.Add("@gioiTinh", SqlDbType.NVarChar).Value = gv.gioiTinh;
-            cmd.Parameters.Add("@queQuan", SqlDbType.NVarChar).Value = gv.queQuan;
-
-            try
+            DataContext dtx = new DataContext();
+            GiaoVien udgv = (from x in dtx.GV where x.idGV == gv.idGV select x).SingleOrDefault();
+            if (udgv != null)
             {
-                cmd.ExecuteNonQuery();
+                udgv.tenGV = gv.tenGV;
+                udgv.idKhoa = gv.idKhoa;
+                udgv.idLop = gv.idLop;
+                udgv.gioiTinh = gv.gioiTinh;
+                udgv.queQuan = gv.queQuan;
+                dtx.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return false;
         }
 
         public static bool deleteGV(int idGV)
@@ -105,32 +105,7 @@ namespace QuanLyThongTin.Model
             }
         }
 
-        public static DataTable searchGV(String str_search)
-        {
 
-            SqlConnection conn = Global.getConnection();
-            String sql = @"select G.idGV, G.tenGV, G.gioiTinh, G.queQuan, K.tenKhoa, L.tenLop 
-                            from GiaoVien G
-                            join Khoa K on G.idKhoa = k.idKhoa
-                            join Lop L on G.idLop = L.idLop";
-
-            String str_where = @" WHERE G.tenGV like '%'+@chuoitimkiem+'%'
-               OR K.tenKhoa like '%'+@chuoitimkiem+'%'
-               OR L.tenLop like '%'+@chuoitimkiem+'%' ";
-
-            SqlCommand cmd = new SqlCommand(sql + str_where, conn);
-            cmd.Parameters.Add("@chuoitimkiem", SqlDbType.NVarChar).Value = str_search;
-            DataTable dt = new DataTable();
-            try
-            {
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-            }
-            return dt;
-        }
+        
     }
 }

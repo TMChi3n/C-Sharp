@@ -53,6 +53,7 @@
             cboLop.Name = "cboLop";
             cboLop.Size = new Size(177, 28);
             cboLop.TabIndex = 1;
+            cboLop.SelectedIndexChanged += cboLop_SelectedIndexChanged;
             // 
             // dgViewHS
             // 
@@ -64,6 +65,7 @@
             dgViewHS.RowTemplate.Height = 29;
             dgViewHS.Size = new Size(600, 273);
             dgViewHS.TabIndex = 2;
+            dgViewHS.CellContentClick += dgViewHS_CellContentClick;
             // 
             // btnBack
             // 
