@@ -61,6 +61,7 @@
             btnAddHS.TabIndex = 2;
             btnAddHS.Text = "Thêm";
             btnAddHS.UseVisualStyleBackColor = true;
+            btnAddHS.Click += btnAddHS_Click;
             // 
             // label2
             // 
@@ -102,14 +103,14 @@
             txtGenderHS.Location = new Point(137, 137);
             txtGenderHS.Name = "txtGenderHS";
             txtGenderHS.Size = new Size(344, 27);
-            txtGenderHS.TabIndex = 1;
+            txtGenderHS.TabIndex = 2;
             // 
             // txtAddressHS
             // 
             txtAddressHS.Location = new Point(137, 185);
             txtAddressHS.Name = "txtAddressHS";
             txtAddressHS.Size = new Size(344, 27);
-            txtAddressHS.TabIndex = 1;
+            txtAddressHS.TabIndex = 3;
             // 
             // btnDeleteHS
             // 
@@ -119,6 +120,7 @@
             btnDeleteHS.TabIndex = 2;
             btnDeleteHS.Text = "Xóa";
             btnDeleteHS.UseVisualStyleBackColor = true;
+            btnDeleteHS.Click += btnDeleteHS_Click;
             // 
             // btnUpdateHS
             // 
@@ -128,6 +130,7 @@
             btnUpdateHS.TabIndex = 2;
             btnUpdateHS.Text = "Cập nhật";
             btnUpdateHS.UseVisualStyleBackColor = true;
+            btnUpdateHS.Click += btnUpdateHS_Click;
             // 
             // cboClassHS
             // 
@@ -155,6 +158,7 @@
             btnSave.TabIndex = 4;
             btnSave.Text = "Lưu";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // frmEditHS
             // 
@@ -176,6 +180,7 @@
             Controls.Add(label1);
             Name = "frmEditHS";
             Text = "Cập nhật thông tin học sinh";
+            Load += frmEditHS_Load;
             ResumeLayout(false);
             PerformLayout();
         }

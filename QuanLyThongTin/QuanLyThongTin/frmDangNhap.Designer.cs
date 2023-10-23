@@ -43,7 +43,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(220, 27);
-            txtPassword.TabIndex = 6;
+            txtPassword.TabIndex = 2;
             // 
             // txtName
             // 
@@ -51,7 +51,7 @@
             txtName.Location = new Point(193, 94);
             txtName.Name = "txtName";
             txtName.Size = new Size(220, 27);
-            txtName.TabIndex = 4;
+            txtName.TabIndex = 1;
             // 
             // label2
             // 
@@ -79,7 +79,7 @@
             btnLogin.Location = new Point(193, 225);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(127, 40);
-            btnLogin.TabIndex = 8;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
@@ -90,7 +90,7 @@
             btnExit.Location = new Point(405, 299);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(137, 50);
-            btnExit.TabIndex = 8;
+            btnExit.TabIndex = 4;
             btnExit.Text = "Thoát";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;

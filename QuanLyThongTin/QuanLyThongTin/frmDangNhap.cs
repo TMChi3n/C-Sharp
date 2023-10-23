@@ -49,7 +49,7 @@ namespace QuanLyThongTin
                     cmd.Parameters.AddWithValue("@mkAdmin", mkAdmin);
 
                     try
-                    {                       
+                    {
                         int count = (int)cmd.ExecuteScalar();
                         return count > 0;
                     }

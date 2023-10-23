@@ -131,13 +131,13 @@ namespace QuanLyThongTin
                 if (ok)
                 {
                     setBlank();
-                    MessageBox.Show("Đã xóa thành công vào cơ sở dữ liệu", "Thông báo");
+                    MessageBox.Show("Đã xóa dữ liệu thành công", "Thông báo");
                     if (datachanged_event != null)
-                        datachanged_event("Tôi đã xóa dữ liệu");
+                        datachanged_event("Đã xóa");
                 }
                 else
                 {
-                    MessageBox.Show("Có lỗi khi cập nhật", "Thông báo");
+                    MessageBox.Show("Lỗi", "Thông báo");
                 }
 
             }

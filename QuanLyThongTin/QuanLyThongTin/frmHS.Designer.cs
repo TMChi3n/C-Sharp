@@ -63,7 +63,7 @@
             dgViewHS.Name = "dgViewHS";
             dgViewHS.RowHeadersWidth = 51;
             dgViewHS.RowTemplate.Height = 29;
-            dgViewHS.Size = new Size(600, 273);
+            dgViewHS.Size = new Size(657, 273);
             dgViewHS.TabIndex = 2;
             dgViewHS.CellContentClick += dgViewHS_CellContentClick;
             // 
@@ -91,7 +91,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 363);
+            ClientSize = new Size(933, 363);
             Controls.Add(label2);
             Controls.Add(cboLop);
             Controls.Add(label1);
